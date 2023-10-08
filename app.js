@@ -5,6 +5,7 @@ const handlebars = require('express-handlebars');
 const productsRouter = require('./Dao/routes/products/products.router');
 const messageRouter = require('./Dao/routes/messages/messages.router');
 const cartsRouter = require('./Dao/routes/carts/carts.router');
+const productsFSRouter = require('./Dao/routes/products/productsFs.router');
 require('dotenv').config();
 
 const port = 8080;
@@ -13,6 +14,7 @@ const app = express();
 
 app.use('/', express.json())
 app.use('/', productsRouter);
+app.use('/', productsFSRouter)
 app.use('/', messageRouter);
 app.use('/', cartsRouter);
 app.use(express.urlencoded({ extended: true }))
